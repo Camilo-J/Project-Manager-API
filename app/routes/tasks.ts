@@ -1,12 +1,18 @@
 import { Router } from "express";
-import { getTasks } from "../controllers/projects";
+import {
+  createTask,
+  getTasks,
+  destroyTask,
+  updateTask,
+  getTask,
+} from "../controllers/task";
 
 const router = Router();
 
 router.get("/", getTasks);
-router.post("/", getTasks);
-router.patch("/:id", getTasks);
-router.delete("/:id", getTasks);
-router.get("/", getTasks);
+router.post("/", createTask);
+router.patch("/:id", updateTask);
+router.delete("/:id", destroyTask);
+router.get("/id", getTask);
 
 export { router };
