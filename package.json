@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && node build/index.js",
     "dev": "nodemon app/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -27,6 +30,7 @@
     "@types/morgan": "^1.9.4",
     "@types/node": "^18.14.6",
     "@types/validator": "^13.7.13",
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.21",
+    "rimraf": "^4.3.1"
   }
 }
