@@ -7,6 +7,11 @@ const getTasks = async (req: Request, res: Response) => {
   res.json(projects);
 };
 
+const getTaskFromProject = async (id: string) => {
+  const tasks = await Task.findAll({ where: { id } });
+  return tasks;
+};
+
 const getTask = async (req: Request, res: Response) => {
   const { id } = req.params;
   const task = Task.findOne({
@@ -56,4 +61,11 @@ const destroyTask = async (req: Request, res: Response) => {
   res.sendStatus(204);
 };
 
-export { getTasks, createTask, updateTask, destroyTask, getTask };
+export {
+  getTasks,
+  getTaskFromProject,
+  createTask,
+  updateTask,
+  destroyTask,
+  getTask,
+};
