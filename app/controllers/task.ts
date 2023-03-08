@@ -7,6 +7,19 @@ const getTasks = async (req: Request, res: Response) => {
   res.json(projects);
 };
 
+const getTask = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const task = Task.findOne({
+    where: {
+      id,
+    },
+  });
+
+  if (!task) res.status(404).json({ message: "Task not found" });
+
+  res.json(task);
+};
+
 const createTask = async (req: Request, res: Response) => {
   const data = req.body;
   const task = await Task.create({ ...data });
@@ -43,4 +56,4 @@ const destroyTask = async (req: Request, res: Response) => {
   res.sendStatus(204);
 };
 
-export { getTasks, createTask, updateTask, destroyTask };
+export { getTasks, createTask, updateTask, destroyTask, getTask };
