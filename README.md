@@ -1,4 +1,4 @@
-# Project Title
+# RestApi-NodeJS
 
 This is a simple RestAPI made in NodeJs with Typescript, PostgreSql and Express
 
